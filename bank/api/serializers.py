@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 
 class BankSerializer(serializers.Serializer):
-
+	id 				= serializers.IntegerField()
 	ifsc    		= serializers.CharField()
 	bank_id        	= serializers.IntegerField()   
 	branch   		= serializers.CharField()
@@ -12,7 +12,6 @@ class BankSerializer(serializers.Serializer):
 	district 		= serializers.CharField()
 	state			= serializers.CharField()
 	bank_name  		= serializers.CharField()
-
 
 
 

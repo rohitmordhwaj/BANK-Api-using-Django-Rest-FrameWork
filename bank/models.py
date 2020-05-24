@@ -4,7 +4,7 @@ from django.db import models
 
 
 class bank_info(models.Model):
-	ifsc    		= models.TextField(max_length=200 , primary_key=True)
+	ifsc    		= models.TextField(max_length=200)
 	bank_id        	= models.IntegerField()   
 	branch   		= models.CharField(max_length=30000)
 	address  		= models.TextField(max_length= 100000)
