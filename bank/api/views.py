@@ -8,7 +8,7 @@ from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.filters  import SearchFilter , OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.authentication import SessionAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 
 
@@ -19,7 +19,7 @@ class BankAPIViewPagination(LimitOffsetPagination):    #to add pagination creati
 
 
 class  BankAPIView(generics.ListAPIView):
-	permission_classes 		= [IsAuthenticated]
+	permission_classes 		= [IsAuthenticatedOrReadOnly]
 	authentication_classes 	= [SessionAuthentication]
 	queryset                = bank_info.objects.all()
 	serializer_class        = BankSerializer
@@ -33,7 +33,7 @@ class  BankAPIView(generics.ListAPIView):
 
 
 class  BankCreateAPIView(generics.CreateAPIView):
-	permission_classes 		= [IsAuthenticated]
+	permission_classes 		= [IsAuthenticatedOrReadOnly]
 	authentication_classes 	= [SessionAuthentication]
 	queryset                = bank_info.objects.all()
 	serializer_class        = BankSerializer
@@ -41,7 +41,7 @@ class  BankCreateAPIView(generics.CreateAPIView):
 
 
 class  BankDetailAPIView(generics.RetrieveAPIView):
-	permission_classes 		= [IsAuthenticated]
+	permission_classes 		= [IsAuthenticatedOrReadOnly]
 	authentication_classes 	= [SessionAuthentication]
 	queryset                = bank_info.objects.all()
 	serializer_class        = BankSerializer
@@ -50,7 +50,7 @@ class  BankDetailAPIView(generics.RetrieveAPIView):
 
 
 class  BankUpdateAPIView(generics.UpdateAPIView):
-	permission_classes 		= [IsAuthenticated]
+	permission_classes 		= [IsAuthenticatedOrReadOnly]
 	authentication_classes 	=[SessionAuthentication]
 	queryset                = bank_info.objects.all()
 	serializer_class        = BankSerializer
@@ -58,7 +58,7 @@ class  BankUpdateAPIView(generics.UpdateAPIView):
 
 
 class  BankDeleteAPIView(generics.DestroyAPIView):
-	permission_classes 		= [IsAuthenticated]
+	permission_classes 		= [IsAuthenticatedOrReadOnly]
 	authentication_classes 	= [SessionAuthentication]
 	queryset                = bank_info.objects.all()
 	serializer_class        = BankSerializer
